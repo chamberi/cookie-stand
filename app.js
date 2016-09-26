@@ -18,14 +18,14 @@ var firstAndPike = {
       this.randCustByHour.push(Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1)) + this.minCustPerHour);
       console.log(this.randCustByHour[i]);
     }
-  }
+  },
   // method for cookies sold by hour
   calcCookiesSoldByHour: function() {
     for (var j = 0; j < hours.length; j++) {
-      this.cookiesSoldByHour.push(avgCookieSoldPerHour * randCustByHour[j]);
+      this.cookiesSoldByHour.push(Math.round(this.avgCookieSoldPerHour * this.randCustByHour[j]));
       console.log(this.cookiesSoldByHour[j]);
     }
   }
 };
-calcRandCustByHour();
-calcCookiesSoldByHour();
+firstAndPike.calcRandCustByHour();
+firstAndPike.calcCookiesSoldByHour();
