@@ -1,6 +1,7 @@
 'use strict';
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var firstandpike = document.getElementById('firstandpike');
 
 var firstAndPike = {
   name: 'First and Pike',
@@ -29,3 +30,10 @@ var firstAndPike = {
 };
 firstAndPike.calcRandCustByHour();
 firstAndPike.calcCookiesSoldByHour();
+
+for (var k = 0; k < hours.length; k++) {
+  var liEl = document.createElement('li');
+  liEl.textContent = hours[k] + ': ' + firstAndPike.cookiesSoldByHour[k] + ' cookies';
+  console.log(liEl);
+  firstandpike.appendChild(liEl);
+}
