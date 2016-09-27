@@ -1,7 +1,15 @@
 * {
   font-family: Lato;
+  border: solid black 1px;
 }
 
+th {
+  width: 75px;
+}
+
+td {
+  text-align: center;
+}
 li {
   font-size: 14px;
   font-family: Verdana;
