@@ -12,6 +12,16 @@ h3 {
 
 table {
   border: solid black 1px;
+  empty-cells: hide;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+  background: #CCC;
+}
+
+tr:nth-child(odd) {
+  background: #FFF;
 }
 
 th:first-child {
@@ -33,10 +43,10 @@ tr:last-child {
   background-color: #EC7A37;
 }
 
-
 th {
   width: 60px;
   border: solid black 1px;
+  background-color: #93c1e3;
 }
 
 th:last-child {
@@ -48,4 +58,12 @@ td {
   text-align: center;
   height: 30px;
   border: solid black 1px;
+}
+
+td:hover {
+  background-color: yellow;
+}
+
+th:hover {
+  background-color: blue;
 }
