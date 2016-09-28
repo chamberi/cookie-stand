@@ -12,6 +12,8 @@ h3 {
 
 table {
   border: solid black 1px;
+  empty-cells: hide;
+  border-collapse: collapse;
 }
 
 th:first-child {
@@ -32,7 +34,6 @@ tr:last-child {
   font-weight: bold;
   background-color: #EC7A37;
 }
-
 
 th {
   width: 60px;
