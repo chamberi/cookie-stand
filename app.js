@@ -32,6 +32,7 @@ function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour
   this.calcCookiesSoldByHour();
 }
 
+// call constructors
 function makeStands() {
   new MakeLocation('First and Pike', 23, 65, 6.3);
   new MakeLocation('SeaTac Airport', 3, 24, 1.2);
@@ -41,7 +42,7 @@ function makeStands() {
 };
 makeStands();
 
-
+// make header row
 function makeHeaderRow() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
@@ -60,6 +61,7 @@ function makeHeaderRow() {
 };
 makeHeaderRow();
 
+// make data rows
 for (var j = 0; j < allLocations.length; j++) {
   function makeOneDataRow() {
     var cookiestands = document.getElementById('cookiestands');
@@ -81,14 +83,13 @@ for (var j = 0; j < allLocations.length; j++) {
   makeOneDataRow();
 };
 
+// make totals row
 function makeTotalsRow() {
   var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Totals';
   trEl.appendChild(tdEl);
-//
-
 
   for (var i = 0; i < hours.length; i++) {
     totalCookiesByHour = 0;
@@ -104,33 +105,7 @@ function makeTotalsRow() {
   tdEl = document.createElement('td');
   tdEl.textContent = totalTotal;
   trEl.appendChild(tdEl);
-  // tdEl = document.createElement()
-  //   for (var i = 0; i < hours.length; i++) {
-  //     tdEl = document.createElement('td');
-  //     tdEl.textContent = allLocations[j].totalCookies[i];
-  //     trEl.appendChild(tdEl);
-  //   }
-  // }
+
   cookiestands.appendChild(trEl);
 };
 makeTotalsRow();
-
-//   var firstandpike = document.getElementById('firstandpike');
-//   var fandp = document.getElementById('fandp');
-//
-//   var h3El = document.createElement('h3');
-//   h3El.textContent = this.name;
-//   fandp.appendChild(h3El);
-//
-//   for (var k = 0; k < hours.length; k++) {
-//     var liEl = document.createElement('li');
-//     liEl.textContent = hours[k] + ': ' + this.cookiesSoldByHour[k] + ' cookies';
-//     console.log(liEl);
-//     firstandpike.appendChild(liEl);
-//   }
-//   var liToEl = document.createElement('li');
-//   console.log(this.totalCookies);
-//   liToEl.textContent = 'Total: ' + this.totalCookies + ' cookies';
-//   firstandpike.appendChild(liToEl);
-// };
-// firstAndPike.render();
