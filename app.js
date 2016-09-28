@@ -54,21 +54,21 @@ function handleStoreAdd(event) {
 
   event.preventDefault(); //gotta have it for this purpose. prevents page reload on a 'submit' event
 
-  if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+  if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcook.value) {
     return alert('Fields cannot be empty!');
   }
 
   var newStoreName = event.target.storename.value;
   var newStoreMinCust = parseInt(event.target.mincust.value);
   var newStoreMaxCust = parseInt(event.target.maxcust.value);
-  var newStoreAvgCust = parseInt(event.target.avgcust.value);
+  var newStoreAvgCook = parseInt(event.target.avgcook.value);
 
-  new MakeLocation(newStoreName, newStoreMinCust, newStoreMaxCust, newStoreAvgCust);
+  new MakeLocation(newStoreName, newStoreMinCust, newStoreMaxCust, newStoreAvgCook);
 
   event.target.storename.value = null;
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
-  event.target.avgcust.value = null;
+  event.target.avgcook.value = null;
 
   render();
 };
@@ -135,7 +135,7 @@ function makeTotalsRow() {
   trEl.appendChild(tdEl);
 
   for (var i = 0; i < hours.length; i++) {
-    totalCookiesByHour = 0;
+    var totalCookiesByHour = 0;
     for (var j = 0; j < allLocations.length; j++) {
       totalCookiesByHour += allLocations[j].cookiesSoldByHour[i];
 
