@@ -2,7 +2,6 @@
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var allLocations = [];
-var totalCookiesByHour = 0;
 var totalTotal = 0;
 var storeForm = document.getElementById('store-form');
 
@@ -45,13 +44,6 @@ function makeStands() {
 };
 makeStands();
 
-
-  // These lines could be used to replace the 'for' loop above
-  // allComments.forEach(function(unicorn) {
-  //   chatList.appendChild(unicorn.render());
-  // });
-
-
 // This function is the event handler for the submission of new store
 function handleStoreAdd(event) {
 
@@ -67,18 +59,17 @@ function handleStoreAdd(event) {
   }
 
   var newStoreName = event.target.storename.value;
-  var newStoreMinCust = event.target.mincust.value;
-  var newStoreMaxCust = event.target.maxcust.value;
-  var newStoreAvgCust = event.target.avgcust.value;
+  var newStoreMinCust = parseInt(event.target.mincust.value);
+  var newStoreMaxCust = parseInt(event.target.maxcust.value);
+  var newStoreAvgCust = parseInt(event.target.avgcust.value);
 
-  var newStoreInstance = new MakeLocation(newStoreName, newStoreMinCust, newStoreMaxCust, newStoreAvgCust);
+  new MakeLocation(newStoreName, newStoreMinCust, newStoreMaxCust, newStoreAvgCust);
 
   event.target.storename.value = null;
   event.target.mincust.value = null;
   event.target.maxcust.value = null;
   event.target.avgcust.value = null;
 
-  allLocations.push(newStoreInstance);
   render();
 };
 
@@ -161,6 +152,7 @@ function makeTotalsRow() {
   cookiestands.appendChild(trEl);
 };
 function render() {
+  totalTotal = 0;
   cookiestands.innerHTML = '';
   makeHeaderRow();
   for (var j = 0; j < allLocations.length; j++) {
