@@ -5,8 +5,6 @@ var allLocations = [];
 var totalTotal = 0;
 var storeForm = document.getElementById('store-form');
 
-
-
 // create MakeLocation object contructor function
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
   this.name = name;
@@ -42,7 +40,6 @@ function makeStands() {
   new MakeLocation('Capitol Hill', 20, 38, 2.3);
   new MakeLocation('Alki Beach', 2, 16, 4.6);
 };
-makeStands();
 
 // This function is the event handler for the submission of new store
 function handleStoreAdd(event) {
@@ -72,20 +69,6 @@ function handleStoreAdd(event) {
 
   render();
 };
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Event listener for comment submission form
-storeForm.addEventListener('submit', handleStoreAdd);
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++++++
-// Event listener for the 'Clear all comments' button
-// clearChatList.addEventListener('click', function() {
-//   chatList.innerHTML = '';
-//   console.log('You just cleared the chat list!');
-//   allComments = [];
-// });
-
-
 
 // make header row
 function makeHeaderRow() {
@@ -151,6 +134,7 @@ function makeTotalsRow() {
 
   cookiestands.appendChild(trEl);
 };
+
 function render() {
   totalTotal = 0;
   cookiestands.innerHTML = '';
@@ -160,4 +144,10 @@ function render() {
   }
   makeTotalsRow();
 }
+
+// calling functions
+makeStands();
 render();
+
+// Event listener for new store submission form
+storeForm.addEventListener('submit', handleStoreAdd);
