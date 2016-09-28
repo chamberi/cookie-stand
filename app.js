@@ -3,6 +3,7 @@
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var allLocations = [];
 var totalCookiesByHour = 0;
+var totalTotal = 0;
 
 // create MakeLocation object contructor function
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
@@ -93,11 +94,16 @@ function makeTotalsRow() {
     totalCookiesByHour = 0;
     for (j = 0; j < allLocations.length; j++) {
       totalCookiesByHour += allLocations[j].cookiesSoldByHour[i];
+
     }
     tdEl = document.createElement('td');
     tdEl.textContent = totalCookiesByHour;
     trEl.appendChild(tdEl);
+    totalTotal += totalCookiesByHour;
   }
+  tdEl = document.createElement('td');
+  tdEl.textContent = totalTotal;
+  trEl.appendChild(tdEl);
   // tdEl = document.createElement()
   //   for (var i = 0; i < hours.length; i++) {
   //     tdEl = document.createElement('td');
