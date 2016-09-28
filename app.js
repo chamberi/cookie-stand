@@ -4,6 +4,9 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 var allLocations = [];
 var totalCookiesByHour = 0;
 var totalTotal = 0;
+var storeForm = document.getElementById('store-form');
+
+
 
 // create MakeLocation object contructor function
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
@@ -42,6 +45,57 @@ function makeStands() {
 };
 makeStands();
 
+
+  // These lines could be used to replace the 'for' loop above
+  // allComments.forEach(function(unicorn) {
+  //   chatList.appendChild(unicorn.render());
+  // });
+
+
+// This function is the event handler for the submission of new store
+function handleStoreAdd(event) {
+
+  // console.log('log of the event object', event);
+  // console.log('log of the event.target', event.target);
+  // console.log('log of the event.target.storename', event.target.storename);
+  // console.log('log of the event.target.storename.value', event.target.storename.value);
+
+  event.preventDefault(); //gotta have it for this purpose. prevents page reload on a 'submit' event
+
+  if (!event.target.storename.value || !event.target.mincust.value || !event.target.maxcust.value || !event.target.avgcust.value) {
+    return alert('Fields cannot be empty!');
+  }
+
+  var newStoreName = event.target.storename.value;
+  var newStoreMinCust = event.target.mincust.value;
+  var newStoreMaxCust = event.target.maxcust.value;
+  var newStoreAvgCust = event.target.avgcust.value;
+
+  var newStoreInstance = new MakeLocation(newStoreName, newStoreMinCust, newStoreMaxCust, newStoreAvgCust);
+
+  event.target.storename.value = null;
+  event.target.mincust.value = null;
+  event.target.maxcust.value = null;
+  event.target.avgcust.value = null;
+
+  allLocations.push(newStoreInstance);
+  render();
+};
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Event listener for comment submission form
+storeForm.addEventListener('submit', handleStoreAdd);
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Event listener for the 'Clear all comments' button
+// clearChatList.addEventListener('click', function() {
+//   chatList.innerHTML = '';
+//   console.log('You just cleared the chat list!');
+//   allComments = [];
+// });
+
+
+
 // make header row
 function makeHeaderRow() {
   var cookiestands = document.getElementById('cookiestands');
@@ -59,28 +113,26 @@ function makeHeaderRow() {
   trEl.appendChild(thEl);
   cookiestands.appendChild(trEl);
 };
-makeHeaderRow();
 
 // make data rows
-for (var j = 0; j < allLocations.length; j++) {
-  function makeOneDataRow() {
-    var cookiestands = document.getElementById('cookiestands');
-    var trEl = document.createElement('tr');
-    var tdEl = document.createElement('td');
-    tdEl.textContent = allLocations[j].name;
-    trEl.appendChild(tdEl);
-    //
-    for (var i = 0; i < hours.length; i++) {
-      tdEl = document.createElement('td');
-      tdEl.textContent = allLocations[j].cookiesSoldByHour[i];
-      trEl.appendChild(tdEl);
-    }
+
+function makeOneDataRow(j) {
+  var cookiestands = document.getElementById('cookiestands');
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = allLocations[j].name;
+  trEl.appendChild(tdEl);
+  //
+  for (var i = 0; i < hours.length; i++) {
     tdEl = document.createElement('td');
-    tdEl.textContent = allLocations[j].totalCookies;
+    tdEl.textContent = allLocations[j].cookiesSoldByHour[i];
     trEl.appendChild(tdEl);
-    cookiestands.appendChild(trEl);
-  };
-  makeOneDataRow();
+  }
+  tdEl = document.createElement('td');
+  tdEl.textContent = allLocations[j].totalCookies;
+  trEl.appendChild(tdEl);
+  cookiestands.appendChild(trEl);
+
 };
 
 // make totals row
@@ -93,7 +145,7 @@ function makeTotalsRow() {
 
   for (var i = 0; i < hours.length; i++) {
     totalCookiesByHour = 0;
-    for (j = 0; j < allLocations.length; j++) {
+    for (var j = 0; j < allLocations.length; j++) {
       totalCookiesByHour += allLocations[j].cookiesSoldByHour[i];
 
     }
@@ -108,4 +160,12 @@ function makeTotalsRow() {
 
   cookiestands.appendChild(trEl);
 };
-makeTotalsRow();
+function render() {
+  cookiestands.innerHTML = '';
+  makeHeaderRow();
+  for (var j = 0; j < allLocations.length; j++) {
+    makeOneDataRow(j);
+  }
+  makeTotalsRow();
+}
+render();

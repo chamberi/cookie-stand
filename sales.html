@@ -9,6 +9,25 @@
 
 <body>
   <br>
+  <form id="store-form">
+    <fieldset>
+      <legend>Add Store Location</legend>
+
+      <label for="storename">Name of Location: </label>
+      <input name="storename" type="text" />
+
+      <label for="mincust">Max Customers per Hour: </label>
+      <input name="mincust" type="text" />
+
+      <label for="maxcust">Min Customers per Hour: </label>
+      <input name="maxcust" type="text" />
+
+      <label for="avgcust">Avg Customers per Hour: </label>
+      <input name="avgcust" type="text" />
+
+      <button type="submit">Create a new store</button>
+    </fieldset>
+  </form>
   <h3>Daily Salmon Cookie Sales by Hour and Location</h3>
   <table id="cookiestands">
   </table>
