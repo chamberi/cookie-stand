@@ -106,7 +106,6 @@ function makeOneDataRow(j) {
   tdEl.textContent = allLocations[j].totalCookies;
   trEl.appendChild(tdEl);
   cookiestands.appendChild(trEl);
-
 };
 
 // make totals row
