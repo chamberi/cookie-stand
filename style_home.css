@@ -12,6 +12,7 @@ nav ul {
   margin-top: 10px;
   background-color: black;
   max-width: 1100px;
+  padding-bottom: 4px;
 }
 
 nav li {
@@ -60,15 +61,17 @@ h3 {
 }
 
 section article {
+  position: relative;
   background-color: #f9d7c3;
   padding 20px;
   height: 220px;
+  width: 1020px;
 }
 
 #inner_one {
-  position: relative;
+  position: absolute;
   display: inline-block;
-  border: 1px solid red;
+  border: 1px solid black;
   height: 180px;
   width: 300px;
   margin-top: 20px;
@@ -76,20 +79,22 @@ section article {
 }
 
 #inner_two {
-  position: relative;
+  position: absolute;
   dsplay: inline-block;
-  float: right;
-  border: 1px solid yellow;
+  border: 1px solid black;
   height: 180px;
   width: 300px;
   margin-top: 20px;
+  left: 360px;
 }
 
 #inner_three {
+  position: absolute;
   display: inline;
   float: right;
-  border: 1px solid blue;
+  border: 1px solid black;
   height: 180px;
   width: 300px;
   margin-top: 20px;
+  left: 700px;
 }
