@@ -5,6 +5,7 @@ var allLocations = [];
 var totalTotal = 0;
 var storeForm = document.getElementById('store-form');
 var cookiestands = document.getElementById('cookiestands');
+var storeList = document.getElemetby('storelist');
 
 // create MakeLocation object contructor function
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
@@ -145,9 +146,20 @@ function render() {
   makeTotalsRow();
 }
 
+// calling store listing function
+function lister() {
+  for (var i = 0; i < allLocations.length; i++) {
+    var liEl = document.createElement('li');
+    liEl.textContent = allLocations[i].name;
+    storeList.appendChild(liEl);
+  }
+}
+
+
 // calling functions
 makeStands();
 render();
+lister();
 
 // Event listener for new store submission form
 storeForm.addEventListener('submit', handleStoreAdd);
