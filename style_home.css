@@ -113,3 +113,8 @@ section p {
   padding-left: 10px;
   font-size: 14px;
 }
+
+section li {
+  margin-left: 10px;
+  font-size: 14px;
+}
