@@ -4,6 +4,7 @@ var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 var allLocations = [];
 var totalTotal = 0;
 var storeForm = document.getElementById('store-form');
+var cookiestands = document.getElementById('cookiestands');
 
 // create MakeLocation object contructor function
 function MakeLocation(name, minCustPerHour, maxCustPerHour, avgCookieSoldPerHour) {
@@ -72,7 +73,7 @@ function handleStoreAdd(event) {
 
 // make header row
 function makeHeaderRow() {
-  var cookiestands = document.getElementById('cookiestands');
+  // var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
   trEl.appendChild(thEl);
@@ -91,7 +92,7 @@ function makeHeaderRow() {
 // make data rows
 
 function makeOneDataRow(j) {
-  var cookiestands = document.getElementById('cookiestands');
+  // var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = allLocations[j].name;
@@ -110,7 +111,7 @@ function makeOneDataRow(j) {
 
 // make totals row
 function makeTotalsRow() {
-  var cookiestands = document.getElementById('cookiestands');
+  // var cookiestands = document.getElementById('cookiestands');
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Totals';

@@ -23,6 +23,10 @@ nav li {
   color: white;
 }
 
+#top {
+  background-color: linear-gradient(gray, white);
+}
+
 img {
   opacity: .25;
   z-index: -2;
@@ -32,6 +36,7 @@ img {
   width: 350px;
   float: left;
 }
+
 
 h3 {
   display: inline;
@@ -97,4 +102,14 @@ section article {
   width: 300px;
   margin-top: 20px;
   left: 700px;
+}
+
+h5 {
+  text-align: center;
+  margin: 10px;
+}
+
+section p {
+  padding-left: 10px;
+  font-size: 14px;
 }
