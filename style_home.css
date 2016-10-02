@@ -94,11 +94,11 @@ section article {
 }
 
 #cutter {
-  width: 40px;
+  width: 60px;
   float: left;
   display: inline;
   border: solid black 1px;
-  margin: 10px 10px 10px 20px;
+  margin: 10px 10px 10px 10px;
 
 }
 
@@ -110,6 +110,13 @@ section article {
   width: 300px;
   margin-top: 20px;
   left: 360px;
+}
+
+#shirt {
+  width: 60px;
+  border: solid 1px black;
+  margin: 10px;
+  float: left;
 }
 
 #inner_three {
@@ -124,9 +131,10 @@ section article {
   }
 
 #family {
-  width: 50px;
+  width: 80px;
+  float: left;
   border: solid 1px black;
-  margin: 0px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   opacity: 0.8;
 }
 
