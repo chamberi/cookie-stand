@@ -45,13 +45,14 @@ h3 {
   margin-left: 180px;
   margin-top: 20px;
   border: 2px black solid;
+  opacity: .8;
 }
 
 #chinook {
   width: 350px;
   float: right;
   margin-right: 260px;
-  opacity: .35;
+  opacity: .55;
 }
 
 #one {
@@ -93,12 +94,12 @@ section article {
 }
 
 #cutter {
-  width: 30px;
+  width: 40px;
   float: left;
   display: inline;
   border: solid black 1px;
-  margin: 20px;
-  
+  margin: 10px 10px 10px 20px;
+
 }
 
 #inner_two {
@@ -120,6 +121,13 @@ section article {
   width: 300px;
   margin-top: 20px;
   left: 700px;
+  }
+
+#family {
+  width: 50px;
+  border: solid 1px black;
+  margin: 0px 10px 10px 10px;
+  opacity: 0.8;
 }
 
 h5 {
