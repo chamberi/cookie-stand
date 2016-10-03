@@ -2,7 +2,7 @@
 
 * {
   font-family: Verdana;
-  /*border: dotted 1px;*/
+  border-width: 5px;
 }
 body {
   margin: 20px;
